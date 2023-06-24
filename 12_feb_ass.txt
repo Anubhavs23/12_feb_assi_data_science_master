@@ -1,0 +1,78 @@
+Q1. What is an Exeption in python? Write the difference between exception and syntax errors ?
+Ans:- An error is an issue in a program that prevents the program from completing its task.
+In comparison, an exception is a condition that interrupts the normal flow of the program. 
+Both errors and exceptions are a type of runtime error, which means they occur during the execution of a program.
+
+Q2:- What happens when an exception is not handled?explain
+with an exmple .
+
+Ans:- it throws an error and the program after exception not get to be executed 
+    x=10
+    x=x/0 ->zero division error thrown in this statement 
+    print(100)->this line is not executed 
+
+    
+Q3:-Which python statements are used to catch and handle exxception? explain with an example .
+Ans:-The following four statement are used in exception handling:-
+    try
+    except
+    else
+    finally
+  
+  ex:-
+try:
+    x=10
+    print(x/0)
+except Exception as e:
+    print("there is an issue in the code ",e)
+else:
+    print("else is executed only when try executed without any  exception")
+finally:
+    print("finally is executed at  all terms")
+
+
+Q4:-Explain with an example
+a.try and else
+b.finally
+c.raise 
+
+Ans:-
+
+try:
+    x=10
+    print(x/0)
+except Exception as e:
+    print("there is an issue in the code ",e)
+else:
+    print("else is executed only when try executed without any  exception")
+finally:
+    print("finally is executed at  all terms")
+    
+Q5:- What are custom Exception in python ? why do we need custom Exceptions? explainwith an example.
+
+Ans:-Like standard exception classes, custom exceptions are also classes. Hence, you can add functionality to the custom exception classes like: Adding attributes and properties. Adding methods e.g., log the exception, format the output, etc.
+
+Q6:- Create a  custom exception class.Use this class to handle an exception.
+
+
+class age_correction(Exception):
+    def __init__(self,msg):
+        self.msg=msg
+   
+   
+def correctage(age):
+    if age<0:
+        raise age_correction("age is negative :: ")
+    elif age>200:
+        raise age_correction("age is to hig to accept :; ")
+    else:
+        print("age is accepted ")
+
+try:
+    
+    age=int(input("etr age : "))
+    correctage(age)
+except age_correction as e:
+    print(e)
+
+
